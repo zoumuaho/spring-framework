@@ -30,20 +30,11 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @since 07.07.2003
  * @see org.springframework.beans.factory.config.ConfigurableBeanFactory#setParentBeanFactory
- * <P>
- *     参数说明：
- *     	第一个方法返回本Bean工厂的父工厂。这个方法实现了工厂的分层
- *     	第二个方法判断本地工厂是否包含这个Bean（忽略其他所有父工厂）。这也是分层思想的体现。
- *     总结：
- *     	这个工厂接口非常简单，实现了Bean工厂的分层。这个工厂接口也是继承自BeanFacotory，也是一个二级接
- * 		口，相对于父接口，它只扩展了一个重要的功能——工厂分层。
- * </P>
  */
 public interface HierarchicalBeanFactory extends BeanFactory {
 
 	/**
 	 * Return the parent bean factory, or {@code null} if there is none.
-	 * 返回本Bean工厂的父工厂
 	 */
 	@Nullable
 	BeanFactory getParentBeanFactory();
@@ -56,7 +47,6 @@ public interface HierarchicalBeanFactory extends BeanFactory {
 	 * @param name the name of the bean to query
 	 * @return whether a bean with the given name is defined in the local factory
 	 * @see BeanFactory#containsBean
-	 * 本地工厂是否包含这个Bean
 	 */
 	boolean containsLocalBean(String name);
 
